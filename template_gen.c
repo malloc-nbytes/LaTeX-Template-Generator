@@ -3,9 +3,65 @@
 #include <string.h>
 
 #define TEMPLATE_SZ 22
+#define FILENAME_CAP 128
+#define MAKEFILE_CONTENTS_SZ 6
+
+char *get_filename_and_create_makefile(char *filepath) {
+  size_t sz = strlen(filepath), slash = 0;
+
+  int buff_idx = 0;
+  static char filename[FILENAME_CAP];
+
+  memset(filename, '\0', sizeof(filename[0]) * FILENAME_CAP);
+
+  for (size_t i = 0; i < sz; i++) {
+    if (*(filepath + i) == '/') {
+      slash = i + 1;
+    }
+  }
+
+  size_t backup = slash;
+
+  for (int i = 0; i < FILENAME_CAP; i++) {
+    if (slash > sz) break;
+    filename[buff_idx++] = *(filepath + slash);
+    *(filepath + slash) = '\0';
+    slash += 1;
+  }
+
+  char new_filepath[FILENAME_CAP];
+  memset(new_filepath, '\0', sizeof(new_filepath[0]) * FILENAME_CAP);
+
+  strcat(new_filepath, filepath);
+  strcat(new_filepath, "Makefile");
+
+  FILE *fp = fopen(new_filepath, "w");
+
+  if (!fp) {
+    fprintf(stderr, "ERROR: could not create file %s\n", new_filepath);
+    exit(EXIT_FAILURE);
+  }
+
+  char *makefile_contents[] = {
+    "main: ",
+    filename,
+    "\n",
+    "	pdflatex ",
+    filename,
+    "\n"
+  };
+
+  for (int i = 0; i < MAKEFILE_CONTENTS_SZ; i++) {
+    fprintf(fp, "%s", makefile_contents[i]);
+  }
+
+  fclose(fp);
+
+  return filename;
+}
 
 void create_tex_template(const char *filepath) {
-  char *template[TEMPLATE_SZ] = {
+  char *template[] = {
     "\\documentclass{article}\n"                                                                       ,
     "\n"                                                                                               ,
     "% Language setting\n"                                                                             ,
@@ -52,6 +108,8 @@ int main(int argc, char **argv) {
   }
 
   create_tex_template(argv[1]);
+  get_filename_and_create_makefile(argv[1]);
 
   return 0;
 }
+
