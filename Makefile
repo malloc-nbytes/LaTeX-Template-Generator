@@ -1,2 +1,2 @@
-main: template_gen.c
-	gcc -o template_gen template_gen.c
+main: new_template_gen.c
+	gcc -o new_template_gen new_template_gen.c
