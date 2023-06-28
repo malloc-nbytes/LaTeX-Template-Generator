@@ -8,6 +8,11 @@ python3 main.py template=research compiler=pdflatex filepath=~/dev/papers/resear
 ```
 This will create a `LaTeX` document with the `research` template as well as a Makefile with the given compiler.
 
+You can also just use the first letter for each flag.
+```
+python3 main.py t=research c=pdflatex f=~/dev/papers/research_paper.tex
+```
+
 The templates available consist of:
 1. article
 2. homework

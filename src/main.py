@@ -128,8 +128,11 @@ def create_template(directory, filename, template_file):
 
 set_flag = {
     "compiler": set_compiler,
+    "c": set_compiler,
     "filepath": set_filepath,
+    "f": set_filepath,
     "template": set_template,
+    "t": set_template,
 }
 
 argv = sys.argv[1:]
