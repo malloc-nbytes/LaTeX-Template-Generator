@@ -21,22 +21,34 @@ TEMPLATE_FILE = None
 def validate():
     global COMPILER, DIRECTORY, FILENAME, TEMPLATE_FILE
     error_msgs = [
-        'Compiler is not specified',
-        'Filepath is not specified',
-        'Template is not specified',
-        'Invalid file extension. File extension should be .tex'
+        '(!) Compiler is not specified',
+        '(!) Filepath is not specified',
+        '(!) Template is not specified',
+        '(!) Invalid file extension. File extension should be .tex'
     ]
 
-    if COMPILER is None:
-        usage(error_msgs[0])
-    if DIRECTORY is None:
-        usage(error_msgs[1])
-    if TEMPLATE_FILE is None:
-        usage(error_msgs[2])
+    isvalid = True
 
-    parts = FILENAME.split('.')
-    if len(parts) == 1 or parts[-1] != 'tex':
-        usage(error_msgs[3])
+    if COMPILER is None:
+        print(error_msgs[0])
+        isvalid = False
+    if DIRECTORY is None:
+        print(error_msgs[1])
+        isvalid = False
+    if TEMPLATE_FILE is None:
+        print(error_msgs[2])
+        isvalid = False
+
+    if FILENAME is not None:
+        parts = FILENAME.split('.')
+        if len(parts) == 1 or parts[-1] != 'tex':
+            print(error_msgs[3])
+            isvalid = False
+    else:
+        isvalid = False
+
+    if not isvalid:
+        usage()
 
 def usage(msg=None):
     if msg is not None:
