@@ -28,6 +28,8 @@ If needed, the program can be run with the `--help` flag for more information.
 python3 main.py --help
 ```
 
+## Adding More Templates
+
 To add more templates, edit this dictionary:
 ```py
 FILES = {
