@@ -1,0 +1,38 @@
+\documentclass{article}
+
+% Language setting
+\usepackage[english]{babel}
+
+% Set page size and margins
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+% Title and author information
+\title{Homework Assignment}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+  \item Question 1
+
+    \begin{itemize}
+      \item Sub Answer 1
+      \item Sub Answer 2
+    \end{itemize}
+
+  \item Question 2
+
+\end{enumerate}
+
+% Add more questions and subparts as needed
+
+\end{document}

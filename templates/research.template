@@ -1,0 +1,60 @@
+\documentclass{article}
+
+% Language setting
+\usepackage[english]{babel}
+
+% Set page size and margins
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+% Title and author information
+\title{Research Paper Title}
+\author{Author Name}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This is the abstract of the research paper. It provides a brief summary of the research objectives, methodology, and key findings.
+\end{abstract}
+
+\section{Introduction}
+% Introduction to the research topic and problem statement
+
+\section{Literature Review}
+% Review of relevant literature and previous research
+
+\section{Methodology}
+% Description of the research methodology and data collection techniques
+
+\section{Results and Analysis}
+% Presentation of research results and data analysis
+
+\section{Discussion}
+% Interpretation and discussion of the results, implications, and limitations
+
+\section{Conclusion}
+% Conclusion summarizing the main findings and their significance
+
+% References section
+\begin{thebibliography}{9}
+\bibitem{reference1}
+Author A, Author B, Author C.
+\textit{Title of the Article}.
+Journal Name, Year.
+
+\bibitem{reference2}
+Author D, Author E.
+\textit{Title of the Book}.
+Publisher Name, Year.
+\end{thebibliography}
+
+\end{document}

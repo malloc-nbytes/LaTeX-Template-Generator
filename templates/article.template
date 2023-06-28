@@ -14,7 +14,7 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \title{Title}
-\author{Author Name}
+\author{Your Name}
 \date{\today}
 
 \begin{document}

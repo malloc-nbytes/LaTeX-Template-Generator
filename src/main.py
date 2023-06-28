@@ -8,8 +8,9 @@ HOMEWORK_TYPE = "homework"
 
 FILES = {
     "article": "../templates/article.template",
-    "notes": "../templates/notes.template",
+    "research": "../templates/research.template",
     "homework": "../templates/homework.template",
+    "notes": "../templates/notes.template",
 }
 
 COMPILER = None
@@ -50,7 +51,7 @@ def create_template(directory, filename, template_file):
     with open(filepath, "w") as f:
         f.write(template_file.read())
 
-func_arr = {
+set_flag = {
     "compiler": set_compiler,
     "filepath": set_filepath,
     "template": set_template,
@@ -62,12 +63,10 @@ argc = len(sys.argv) - 1
 try:
     for i in range(0, argc):
        flag, value = argv[i].split('=')
-       func_arr[flag](value)
+       set_flag[flag](value)
 except:
     usage()
 validate()
 
 create_makefile(DIRECTORY, FILENAME, COMPILER)
 create_template(DIRECTORY, FILENAME, TEMPLATE_FILE)
-
-

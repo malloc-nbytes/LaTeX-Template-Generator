@@ -1,0 +1,42 @@
+\documentclass{article}
+
+% Language setting
+\usepackage[english]{babel}
+
+% Set page size and margins
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+% Title and author information
+\title{Chapter \# Notes}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Chapter Title}
+\subsection{Chapter Subtitle}
+Main points and key concepts from chapter subsection.
+
+\subsection{Chapter Subtitle}
+Main points and key concepts from chapter subsection.
+
+\section{Chapter Title}
+\subsection{Chapter Subtitle}
+Main points and key concepts from chapter subsection.
+
+\subsection{Chapter Subtitle}
+Main points and key concepts from chapter subsection.
+
+% Add more chapters, sections, and subsections as needed
+
+\section*{Additional Notes}
+Additional notes, observations, and important details that don't fit into specific chapters or sections.
+
+\end{document}
