@@ -27,3 +27,23 @@ If needed, the program can be run with the `--help` flag for more information.
 ```
 python3 main.py --help
 ```
+
+To add more templates, edit this dictionary:
+```py
+FILES = {
+    "article": "../templates/article.template",
+    "research": "../templates/research.template",
+    "homework": "../templates/homework.template",
+    "notes": "../templates/notes.template",
+}
+```
+Put the name on the left, and put the actual file in the `templates` directory.
+```py
+FILES = {
+    "article": "../templates/article.template",
+    "research": "../templates/research.template",
+    "homework": "../templates/homework.template",
+    "notes": "../templates/notes.template",
+    "my_template": "../templates/my_template.template",
+}
+```
