@@ -18,6 +18,7 @@ DIRECTORY = None
 FILENAME = None
 TEMPLATE_FILE = None
 
+
 def validate():
     global COMPILER, DIRECTORY, FILENAME, TEMPLATE_FILE
     error_msgs = [
@@ -50,12 +51,14 @@ def validate():
     if not isvalid:
         usage()
 
+
 def usage(msg=None):
     if msg is not None:
         print("(ERR)", msg)
     print("(USAGE) python3 main.py template=<template> filepath=~/path/to/destination/main.tex compiler=<compiler>")
     print("(HELP) Use the --help flag for descriptions")
     exit(1)
+
 
 def help():
     print("(HELP) Flags can be specified in any order")
@@ -76,10 +79,12 @@ def help():
     print("(HELP)   - Specify the compiler that the Makefile will use")
     print("(HELP)   - An example one is `pdflatex`")
 
+
 def set_compiler(value):
     global COMPILER
     COMPILER = value
     print(f"Set compiler to {value}")
+
 
 def set_filepath(location):
     global DIRECTORY, FILENAME
@@ -87,6 +92,7 @@ def set_filepath(location):
     print(f"Set directory to {DIRECTORY}")
     print(f"Set filename to {FILENAME}")
     print(f"Set filepath to {location}")
+
 
 def set_template(value):
     global FILES, TEMPLATE_FILE
@@ -96,6 +102,7 @@ def set_template(value):
         print(f"(ERR) Invalid template {value}")
         return
     print(f"Set template to {value}")
+
 
 def create_dir(directory, filepath, content):
     try:
@@ -108,15 +115,19 @@ def create_dir(directory, filepath, content):
     except Exception as e:
         print("(ERR) An error occurred while creating the Makefile:", str(e))
 
+
 def create_makefile(directory, filename, compiler):
     filepath = os.path.join(directory, "Makefile")
-    content = filename.split('.')[0] + ': ' + filename + '\n\t' + compiler + ' ' + filename
+    content = filename.split('.')[0] + ': ' + \
+        filename + '\n\t' + compiler + ' ' + filename
     create_dir(directory, filepath, content)
+
 
 def create_template(directory, filename, template_file):
     filepath = os.path.join(directory, filename)
     content = template_file.read()
     create_dir(directory, filepath, content)
+
 
 set_flag = {
     "compiler": set_compiler,
