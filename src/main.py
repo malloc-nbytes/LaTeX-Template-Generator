@@ -3,9 +3,6 @@
 import sys
 import os
 
-NOTES_TYPE = "notes"
-HOMEWORK_TYPE = "homework"
-
 FILES = {
     "article": "../templates/article.template",
     "research": "../templates/research.template",
