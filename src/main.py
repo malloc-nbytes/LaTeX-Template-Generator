@@ -35,7 +35,7 @@ def validate():
         usage(error_msgs[2])
 
     parts = FILENAME.split('.')
-    if len(parts) != 2 or parts[1] != 'tex':
+    if len(parts) == 1 or parts[-1] != 'tex':
         usage(error_msgs[3])
 
 def usage(msg=None):
@@ -46,6 +46,7 @@ def usage(msg=None):
     exit(1)
 
 def help():
+    print("(+) Flags can be specified in any order")
     print("(+) template=<template>")
     print("(+)   `article`")
     print("(+)     - Creates a template in `article` format")
