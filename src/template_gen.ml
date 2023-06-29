@@ -16,7 +16,7 @@ let usage () : unit =
   let _ = print_endline "(USAGE) ./template_gen template=<template> compiler=pdflatex filepath=~/dev/tmp/main.tex" in
   failwith "Usage"
 
-let err (msg) : unit =
+let err (msg : string) : unit =
   let _ = Printf.printf "(ERR) %s\n" msg in
   usage ()
 
@@ -164,4 +164,5 @@ let () =
                                 } in
   let _ = validate_tc tc in
   let _ = create_makefile tc in
-  create_template tc
+  let _ = create_template tc in
+  print_endline "Successfully created template file and Makefile"
