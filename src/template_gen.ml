@@ -20,6 +20,24 @@ let err (msg) : unit =
   let _ = Printf.printf "(ERR) %s\n" msg in
   usage ()
 
+let help () : unit =
+  let _ = print_endline "template=<template>" in
+  let _ = print_endline "  article" in
+  let _ = print_endline "    - Creates a file with the `article` template" in
+  let _ = print_endline "  notes" in
+  let _ = print_endline "    - Creates a file with the `notes` template" in
+  let _ = print_endline "  homework" in
+  let _ = print_endline "    - Creates a file with the `homework` template" in
+  let _ = print_endline "  research" in
+  let _ = print_endline "    - Creates a file with the `research` template" in
+  let _ = print_endline "filepath=<path/to/create/file.tex>" in
+  let _ = print_endline "  - Give a path that is already created" in
+  let _ = print_endline "  - It will create the `file.tex` for you" in
+  let _ = print_endline "  - The filename must end with `tex`" in
+  let _ = print_endline "compiler=<compiler>" in
+  let _ = print_endline "  - Specify a compiler to use in the Makefile" in
+  usage ()
+
 let file_to_string (filepath : string) : string =
   let channel = open_in_bin filepath in
   let data = really_input_string
@@ -89,8 +107,12 @@ let rec process_input (argv : string array) (argc : int) (i : int) (tc : templat
          let _ = tc.template_file <- Some (get_tc_template arg) in
          process_input argv argc (i + 1) tc
       | flag ->
-         let _ = err ("Unsupported flag " ^ (List.nth flag 0)) in
-         tc)
+         (match flag with
+         | ["--help";] -> let _ = help () in tc
+         | _ -> 
+            let _ = err ("Unsupported flag " ^ (List.nth flag 0)) in
+            tc)
+     )
 
 let unwrap (data : 'a option) : 'a =
   match data with
